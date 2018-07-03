@@ -1,0 +1,44 @@
+.homepage {
+  
+  .title {
+    margin-top: 40px; 
+  }
+
+  .header {
+    height: 5px;
+  }
+
+  .form {
+    margin-top: 40px;
+  }
+
+  .form-group {
+    clear: both;
+  }
+
+  .dropdown {
+    float: right;
+    width: 80%;
+  }
+
+  .prefix{
+    padding: 0px 10px;
+    font-weight: 700;
+    color: $brand-color;
+  }
+
+  .custom-control {
+    float: left;
+    width: 83%;
+  }
+
+  .button {
+    float: right; 
+    width: 15%;
+    padding: 10px;
+  }
+
+  hr {
+    clear: both;
+  }
+}

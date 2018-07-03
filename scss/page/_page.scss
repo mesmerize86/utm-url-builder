@@ -1,0 +1,17 @@
+.page{
+  position: relative;
+  display: flex;
+
+  .sidebar {
+    flex: 1;
+    height: 100%;
+  }
+
+  .homepage {
+    flex: 1;
+  }
+
+}
+
+
+@import 'homepage';

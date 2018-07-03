@@ -1,0 +1,42 @@
+.dropdown{
+
+  &-bar{
+    &-rounded--top{
+      border-radius: 5px 5px 0px 0px;
+    }
+  }
+
+  &-title{
+    font-size: $font-size-normal;
+    font-family: $primary-font-family;
+    margin-top: 0px;
+
+    @include breakpoint("small-below"){
+      font-size: $font-size-large;
+    }
+
+    .icon-file {
+      color: $brand-color;
+      font-size: $font-size-large;
+      margin-right: 10px;
+
+      @include breakpoint("small-below"){
+        font-size: $font-size-base;
+        margin-right: 5px;
+      }
+    }
+
+    .icon-caret-up, .icon-caret-down{
+      margin-left: 20px;
+      font-size: $font-size-large;
+    }
+  }
+
+  &-content {
+    background: #ececec;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+}
+

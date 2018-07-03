@@ -1,0 +1,20 @@
+.button {
+  display: block;  
+  width: 100%;
+  font-size: 16px; 
+  padding: 15px 0px; 
+
+  &-primary {
+    background-color: $brand-color;
+    color: #FFF;
+  }
+
+  &-secondary {
+    background-color: $brand-color-secondary;
+    color: #FFF;
+  }  
+
+  &-default{
+    background-color: #ccc;
+  }
+}
