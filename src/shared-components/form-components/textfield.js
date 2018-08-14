@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextField = ({ label, field, type, value, placeholder, handleChange}) => {
+const TextField = ({ label, field, type, value, placeholder, length, handleChange, handleKeyPress}) => {
   return (
     <div className="form-group">
       <label className="form-label ">{label}</label>
@@ -8,7 +8,9 @@ const TextField = ({ label, field, type, value, placeholder, handleChange}) => {
         type = { type || 'text'} 
         name = { field } 
         value = { value } 
+        maxLength = { length }
         placeholder = { placeholder }
+        onKeyPress = {handleKeyPress}
         onChange = { handleChange }
         className="form-control" />
     </div>

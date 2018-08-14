@@ -27,7 +27,7 @@ export const getParam = (paramName) => {
   }
 };
 
-
+/* check if the object has any property */
 export const isEmpty = (obj) => {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))

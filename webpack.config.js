@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 
 
@@ -9,8 +9,8 @@ module.exports = {
     './src/index.js',
     './scss/main.scss'],
   output:{
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, './build'),
+    filename: 'bundle.[hash].js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -19,6 +19,12 @@ module.exports = {
     port: 9999
   },
   watch: true,
+  stats: {
+    // One of the two if I remember right
+    entrypoints: false,
+    children: false
+ },
+  performance: { hints: false },
   module: {
     rules: [
       { 
@@ -31,21 +37,30 @@ module.exports = {
         use: 'url-loader'
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader!resolve-url-loader!sass-loader?sourceMap",
-          publicPath: "/dist"
-        })
+        test: /\.(html)$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeComments: false,
+            collapseWhitespace: false
+          }
+        }]
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'style.min.css',
-      disable: false,
-      allChunks: true
+
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].min.css'
     }),
     new HtmlWebpackPlugin ({
       template: './src/index.html'
